@@ -29,18 +29,4 @@ class mydict(dict):
          
     
 
-v=mydict({1:5,4:6,9:8})
-v()
-for i in v:
-    v[i]=str(v[i])
-    v()
-c=mydict({4:7})
-c()
-c[4]=6
-c()
-del c[4]
-c()
-c[8]=44
-c()
-print(mydict.instance_tracker)
-print(mydict.instances)
+
