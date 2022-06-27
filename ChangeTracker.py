@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 
 
-class mydict(dict):
+class TrackerDict(dict):
     count=0
     instance_tracker=[]
     instances={}
