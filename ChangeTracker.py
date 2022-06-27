@@ -45,6 +45,8 @@ class TrackerDict(dict):
             # json.dump({'created_at':str(datetime.now())},file)  
                 cls.instances=cls.instances|{'created_at':str(datetime.now())} 
                 json.dump([cls.instances],file,ensure_ascii=False,indent=2)
+        
+        return cls.instances
 
     def __call__(self,name,track=True):
 
