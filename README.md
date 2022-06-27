@@ -29,7 +29,8 @@ del d[4]
 d('two') # Since we created another instance it's name must be differrent from other instances
 
 
- """ Use the class method label_instance to return all the changes during the current execution of the program.Changes in previous executions will be stored in 'changes.json' file"""
+  """ Use the class method label_instance to return all the changes during the current execution of the program.
+ It must be called in order to create 'changes.json' file .Changes in previous executions will be stored in 'changes.json' file"""
  
  print(TrackerDict.label_instance())
 
