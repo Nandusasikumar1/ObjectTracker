@@ -2,12 +2,17 @@
 
 
 ```
+
+
 Using TrackerDict dictionary, which inherits from original python dictionary 
 we can track the changes in any TrackerDict Object.
 ```
 example
 
 ```
+from ObjectTracker.ChangeTracker import TrackerDict
+ #Import TrackerDict like this if you include the cloned repository in your project 
+
 c=TrackerDict({1:5})
 c('one') #Call the  instance with a name since this is the first instance I named it "one".You can name it whatever you want.This is for tracking the changes in the instance.
 
