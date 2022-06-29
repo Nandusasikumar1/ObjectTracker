@@ -16,7 +16,9 @@ from ObjectTracker.ChangeTracker import TrackerDict
 c=TrackerDict({1:3})
 c.set_name(name='one') 
 c()
-#First ,set a name for the instance since this is the first instance, I named it "one".You can name it whatever you want.Then call the instance.This is for tracking the changes in the instance.
+#First ,set a name for the instance since this is the first instance,
+ I named it "one".You can name it whatever you want.Then call the instance.
+ This is for tracking the changes in the instance.
 
 #Now we make a change 
 
@@ -34,7 +36,11 @@ the name must be unique"""
 
 TrackerDict.label_instance(overwrite=False)
 
-"""Use the class method label_instance after making all the changes to save the changes as a json file(changes.json).It has an overwrite parameter which has a default value of False.If it is set to True ,only changes made in the current execution of the program will be saved and changes during the previous executions saved in the changes.json file will be lost."""
+"""Use the class method label_instance after making all the changes 
+to save the changes as a json file(changes.json).It has an overwrite parameter 
+which has a default value of False.If it is set to True ,only changes
+ made in the current execution of the program will be saved and changes 
+ during the previous executions saved in the changes.json file will be lost."""
 
 output saved in the json file:
 
