@@ -1,4 +1,3 @@
-from ObjectTracker import track
 import json
 from datetime import datetime
 import os
@@ -10,8 +9,9 @@ class TrackerDict(dict):
     name=None
 
     def SaveChanges(self,name:str):
+
         if self.append(self.instance_tracker)!=dict(self):
-            track.TrackChanges(self,name)
+            self.TrackChanges(name)
           
     def append(self,appending_list:list):
         
@@ -19,7 +19,13 @@ class TrackerDict(dict):
             return appending_list[-1]
         except:
             pass
-    
+
+    def TrackChanges(self,name):
+
+        instance_track={}
+        instance_track[name]=dict(self)
+        self.instance_tracker.append(instance_track )
+
     @classmethod
     def label_instance(cls,overwrite=False):
         
