@@ -8,6 +8,7 @@ class TrackerDict(dict):
     instance_tracker=[]
     instances={}
     name=None
+
     def SaveChanges(self,name:str):
         if self.append(self.instance_tracker)!=dict(self):
             track.TrackChanges(self,name)
@@ -29,13 +30,14 @@ class TrackerDict(dict):
                 cls.instances[change_index].append(change)
         
         if overwrite==True:
+
             with open('changes.json','w') as file:
                 cls.instances.update({'created_at':str(datetime.now())}) 
                 json.dump([cls.instances],file,ensure_ascii=False,indent=2)
         
         elif overwrite==False:
+
             try:
-                
                 with  open('changes.json','r') as file:
                     cls.instances.update({'created_at':str(datetime.now())})  
                     json_list=json.load(file)
@@ -48,6 +50,7 @@ class TrackerDict(dict):
                     cls.instances.update({'created_at':str(datetime.now())}) 
                     json.dump([cls.instances],file,ensure_ascii=False,indent=2)
         else:
+
             raise Exception('Only Boolean values are acceptable')
         
         return cls.instances
@@ -65,7 +68,4 @@ class TrackerDict(dict):
             self.SaveChanges(self.name)
            
            
-         
-    
-
-
+        
