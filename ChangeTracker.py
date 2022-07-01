@@ -1,4 +1,3 @@
-from errno import EXDEV
 import json
 from datetime import datetime
 import os
