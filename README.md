@@ -14,9 +14,9 @@ from ObjectTracker.ChangeTracker import TrackerDict
  #Import TrackerDict like this if you include the cloned repository in your project 
 
 c=TrackerDict({1:3})
-c.set_name(name='one') 
+c+'one'
 c()
-#First ,set a name for the instance since this is the first instance,
+#First ,set a name for the instance using addition operator(+).Since this is the first instance,
  I named it "one".You can name it whatever you want.Then call the instance.
  This is for tracking the changes in the instance.
 

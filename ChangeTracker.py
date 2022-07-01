@@ -1,3 +1,4 @@
+from errno import EXDEV
 import json
 from datetime import datetime
 import os
@@ -38,14 +39,14 @@ class TrackerDict(dict):
         if overwrite==True:
 
             with open('changes.json','w') as file:
-                cls.instances.update({'created_at':str(datetime.now())}) 
+                cls.instances |= {'created_at':str(datetime.now())}
                 json.dump([cls.instances],file,ensure_ascii=False,indent=2)
         
         elif overwrite==False:
 
             try:
                 with  open('changes.json','r') as file:
-                    cls.instances.update({'created_at':str(datetime.now())})  
+                    cls.instances |= {'created_at':str(datetime.now())} 
                     json_list=json.load(file)
                     json_list.append(cls.instances)
                     with open('changes.json','w')as file1:
@@ -53,7 +54,7 @@ class TrackerDict(dict):
 
             except:
                 with open('changes.json','w') as file:
-                    cls.instances.update({'created_at':str(datetime.now())}) 
+                    cls.instances |= {'created_at':str(datetime.now())}
                     json.dump([cls.instances],file,ensure_ascii=False,indent=2)
         else:
 
@@ -65,9 +66,12 @@ class TrackerDict(dict):
     def remove_json(cls):
         os.remove('changes.json')
     
-    def set_name(self,name):
-        self.name=name
-        return name
+    def __add__(self,name):
+        if isinstance(name,str):
+            self.name=name
+            return name
+        else:
+            raise Exception('Only string values are allowed')
 
     def __call__(self,track=True):
         if track==True:
